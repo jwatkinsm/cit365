@@ -26,7 +26,7 @@ namespace ConsoleApp
             // Console.WriteLine("{0} days until Christmas.", (christmas - today).Days);
 
             //window measurements 2.1.1
-            
+            GlazerApp.RunExample();
             Console.WriteLine("Press any key to exit...");
             _ = Console.ReadKey();
             //Console.ReadLine ();
@@ -61,4 +61,6 @@ namespace ConsoleApp
             Console.ReadKey();
         }
     }
+
+    
 }
