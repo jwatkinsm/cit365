@@ -20,14 +20,16 @@ namespace ConsoleApp
             DateTime today = DateTime.Today;
             DateTime christmas = new DateTime(2022, 12, 25);
             //print date and countdown
-            Console.WriteLine("Current date "+ today.ToString("d"));
+            Console.WriteLine("\nCurrent date "+ today.ToString("d"));
             Console.WriteLine("{0} days until Christmas.", (christmas - today).Days);
 
-            //
+            //window measurements 2.1.1
             double width, height, woodLength, glassArea;
             string widthString, heightString;
+            Console.WriteLine("\nEnter the width of the window");
             widthString = Console.ReadLine();
             width = double.Parse(widthString);
+            Console.WriteLine("Enter the hieght of window");
             heightString = Console.ReadLine();
             height = double.Parse(heightString);
             woodLength = 2 * (width + height) * 3.25;
