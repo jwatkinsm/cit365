@@ -13,6 +13,7 @@ namespace ConsoleApp
          //string fullName = "Joshua Watkins";
          // string location = "Stafford, Virginia";
          //print/call name and location
+
             GetUserNameAndLocation();
             //Console.WriteLine("My name is {0}, I am from {1}.", fullName, location);
 
@@ -38,7 +39,7 @@ namespace ConsoleApp
             var personName = Console.ReadLine();
             Console.WriteLine($"Hi {personName}! Where are you from? ");
             var personLocation = Console.ReadLine();
-            Console.WriteLine($"I have never been to {personLocation}. I bet it is nce. \nPress  any key to continue...");
+            Console.WriteLine($"I have never been to {personLocation}. I bet it is nice. \nPress  any key to continue...");
             Console.ReadKey();
 
             //variables
