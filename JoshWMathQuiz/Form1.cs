@@ -9,6 +9,15 @@ namespace JoshWMathQuiz
         int addend1, addend2, minuend, subtrahend, multiplicand, multiplier, dividend, divisor;
         int timeLeft;
 
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             //true stop timer and show message
