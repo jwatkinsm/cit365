@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timeLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.plusLeftLabel = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.dividedLeftLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Date = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -68,6 +70,7 @@
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLabel.TabIndex = 0;
+            this.timeLabel.Click += new System.EventHandler(this.timeLabel_Click);
             // 
             // label1
             // 
@@ -124,20 +127,27 @@
             // 
             // sum
             // 
+            this.sum.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.sum.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.sum.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.sum.Location = new System.Drawing.Point(320, 81);
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 39);
             this.sum.TabIndex = 1;
+            this.sum.ValueChanged += new System.EventHandler(this.sum_ValueChanged);
+            this.sum.BackColorChanged += new System.EventHandler(this.sum_ValueChanged);
             this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
             // 
+            this.difference.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.difference.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.difference.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.difference.Location = new System.Drawing.Point(320, 140);
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 39);
             this.difference.TabIndex = 2;
+            this.difference.ValueChanged += new System.EventHandler(this.diff_ValueChanged);
             this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label3
@@ -182,11 +192,14 @@
             // 
             // product
             // 
+            this.product.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.product.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.product.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.product.Location = new System.Drawing.Point(320, 201);
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 39);
             this.product.TabIndex = 3;
+            this.product.ValueChanged += new System.EventHandler(this.product_ValueChanged);
             this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
@@ -231,11 +244,14 @@
             // 
             // quotient
             // 
+            this.quotient.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.quotient.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.quotient.Location = new System.Drawing.Point(320, 261);
+            this.quotient.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.quotient.Location = new System.Drawing.Point(320, 265);
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 39);
             this.quotient.TabIndex = 4;
+            this.quotient.ValueChanged += new System.EventHandler(this.quotient_ValueChanged);
             this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12
@@ -281,13 +297,14 @@
             // startButton
             // 
             this.startButton.AutoSize = true;
+            this.startButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.startButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.startButton.Location = new System.Drawing.Point(162, 314);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(135, 35);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "start the Quiz";
-            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // timer1
@@ -295,11 +312,21 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Date
+            // 
+            this.Date.AutoSize = true;
+            this.Date.Location = new System.Drawing.Point(12, 9);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(0, 15);
+            this.Date.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.Date);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.quotient);
             this.Controls.Add(this.label12);
@@ -323,10 +350,13 @@
             this.Controls.Add(this.plusLeftLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.timeLabel);
+            this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Math Quiz";
+            this.Text = "Joshua Watkins Math Quiz";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).EndInit();
@@ -362,5 +392,6 @@
         private Label dividedLeftLabel;
         private Button startButton;
         private System.Windows.Forms.Timer timer1;
+        private Label Date;
     }
 }

@@ -1,3 +1,5 @@
+using System.Media;
+
 namespace JoshWMathQuiz
 {
     public partial class Form1 : Form
@@ -8,6 +10,16 @@ namespace JoshWMathQuiz
         //variables
         int addend1, addend2, minuend, subtrahend, multiplicand, multiplier, dividend, divisor;
         int timeLeft;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Date.Text = DateTime.Now.ToString("dd MMMM yyyy");
+        }
+
+        private void timeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void answer_Enter(object sender, EventArgs e)
         {
@@ -33,6 +45,17 @@ namespace JoshWMathQuiz
             {
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + "seconds";
+                //color control for countdown
+                if (timeLeft <= 5)
+                {
+                    timeLabel.BackColor = Color.Red;
+                    SystemSounds.Asterisk.Play();
+                }
+
+                if (timeLeft == 0)
+                {
+                    timeLabel.BackColor = Color.Transparent;
+                }
             }
             else
             {
@@ -117,10 +140,60 @@ namespace JoshWMathQuiz
         {
             InitializeComponent();
         }
+        //sound controls for answers
+        private void sum_ValueChanged(object sender, EventArgs e)
+        {
+            if (sum.Value == (addend1 + addend2))
+            {
+                SystemSounds.Beep.Play();
+                sum.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                sum.BackColor = Color.LightGray;
+            }
 
+        }
+        private void diff_ValueChanged(object sender, EventArgs e)
+        {
+            if (difference.Value == (minuend - subtrahend))
+            {
+                SystemSounds.Beep.Play();
+                difference.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                difference.BackColor = Color.LightGray;
+            }
+        }
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            if (product.Value == (multiplicand * multiplier))
+            {
+                SystemSounds.Beep.Play();
+                product.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                product.BackColor = Color.LightGray;
+            }
+        }
+        private void quotient_ValueChanged(object sender, EventArgs e)
+        {
+            if (quotient.Value == (dividend / divisor))
+            {
+                SystemSounds.Beep.Play();
+                quotient.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                quotient.BackColor = Color.LightGray;
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+       
     }
 }
