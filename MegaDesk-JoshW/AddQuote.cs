@@ -16,5 +16,19 @@ namespace MegaDesk_JoshW
         {
             InitializeComponent();
         }
+
+        private void SubmitOrder_Click(object sender, EventArgs e)
+        {
+            //how to pass objects to forms
+
+        }
+
+        //back to main menu
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
+        }
     }
 }

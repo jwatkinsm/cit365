@@ -16,25 +16,39 @@ namespace MegaDesk_JoshW
         {
             InitializeComponent();
         }
-
+        //navigation button controls
+        #region
+        //close application
         private void ExitBtn_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
-
+        
+        //open search quotes page
         private void SearchQuotesBtn_Click(object sender, EventArgs e)
         {
-
+            SearchQuotes viewSearchQuotes = new SearchQuotes();
+            viewSearchQuotes.Tag = this;
+            viewSearchQuotes.Show(this);
+            Hide();
         }
 
+        //open view all quotes page
         private void ViewQuotesBtn_Click(object sender, EventArgs e)
         {
-
+            ViewAllquotes viewViewAllquotes = new ViewAllquotes();
+            viewViewAllquotes.Tag = this;
+            viewViewAllquotes.Show(this);
+            Hide();
         }
-
+        //open add quote page
         private void AddQuoteBtn_Click(object sender, EventArgs e)
         {
-
+            AddQuote viewAddQuote = new AddQuote();
+            viewAddQuote.Tag = this;
+            viewAddQuote.Show(this);
+            Hide();
         }
+        #endregion
     }
 }

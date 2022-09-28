@@ -16,5 +16,17 @@ namespace MegaDesk_JoshW
         {
             InitializeComponent();
         }
+
+        private void SearchQuotes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
+        }
     }
 }

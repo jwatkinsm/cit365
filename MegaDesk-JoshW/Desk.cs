@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_JoshW
 {
-    internal class Desk
+    public class Desk
     {
     }
 }
