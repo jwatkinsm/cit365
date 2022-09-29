@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NameTextField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.widthTextField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.depthTextField = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -56,12 +56,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // textBox1
+            // NameTextField
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.NameTextField.Location = new System.Drawing.Point(91, 0);
+            this.NameTextField.Name = "NameTextField";
+            this.NameTextField.Size = new System.Drawing.Size(100, 20);
+            this.NameTextField.TabIndex = 1;
             // 
             // label2
             // 
@@ -72,12 +72,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Desk Width";
             // 
-            // textBox2
+            // widthTextField
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.widthTextField.Location = new System.Drawing.Point(91, 60);
+            this.widthTextField.Name = "widthTextField";
+            this.widthTextField.Size = new System.Drawing.Size(100, 20);
+            this.widthTextField.TabIndex = 3;
+            this.widthTextField.Validating += new System.ComponentModel.CancelEventHandler(this.widthTextField_Validating);
+            this.widthTextField.Validated += new System.EventHandler(this.widthTextField_Validated);
             // 
             // label3
             // 
@@ -88,12 +90,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "desk Depth";
             // 
-            // textBox3
+            // depthTextField
             // 
-            this.textBox3.Location = new System.Drawing.Point(91, 146);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.depthTextField.Location = new System.Drawing.Point(91, 146);
+            this.depthTextField.Name = "depthTextField";
+            this.depthTextField.Size = new System.Drawing.Size(100, 20);
+            this.depthTextField.TabIndex = 5;
+            this.depthTextField.TextChanged += new System.EventHandler(this.depthTextField_TextChanged);
             // 
             // label4
             // 
@@ -214,11 +217,11 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.depthTextField);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.widthTextField);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextField);
             this.Controls.Add(this.label1);
             this.Name = "AddQuote";
             this.Text = "AddQuote";
@@ -230,11 +233,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameTextField;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox widthTextField;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox depthTextField;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;

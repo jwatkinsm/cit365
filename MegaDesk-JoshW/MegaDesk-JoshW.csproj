@@ -52,6 +52,11 @@
     <Compile Include="AddQuote.Designer.cs">
       <DependentUpon>AddQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddQuote1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddQuote.resx</DependentUpon>
+    </Compile>
     <Compile Include="Desk.cs" />
     <Compile Include="DeskQuote.cs" />
     <Compile Include="DisplayQuote.cs">
@@ -82,6 +87,8 @@
     </Compile>
     <EmbeddedResource Include="AddQuote.resx">
       <DependentUpon>AddQuote.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AddQuote1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayQuote.resx">
       <DependentUpon>DisplayQuote.cs</DependentUpon>
