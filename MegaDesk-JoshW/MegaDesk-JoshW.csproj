@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MegaDesk_JoshW</RootNamespace>
     <AssemblyName>MegaDesk-JoshW</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,11 +52,6 @@
     </Compile>
     <Compile Include="AddQuote.Designer.cs">
       <DependentUpon>AddQuote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddQuote1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddQuote.resx</DependentUpon>
     </Compile>
     <Compile Include="Desk.cs" />
     <Compile Include="DeskQuote.cs" />
@@ -104,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SearchQuotes.resx">
       <DependentUpon>SearchQuotes.cs</DependentUpon>

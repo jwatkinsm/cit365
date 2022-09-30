@@ -91,19 +91,19 @@ namespace MegaDesk_JoshW
             {
                 case "oak":
                     return 200;
-                    break;
+                    
                 case "laminate":
                     return 100;
-                    break;
+                    
                 case "pine":
                     return 50;
-                    break;
+                    
                 case "rosewood":
                     return 300;
-                    break;
+                    
                 case "veneer":
                     return 125;
-                    break;
+                   
             }
             return 0;
         }

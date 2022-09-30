@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.NameTextField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,8 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.depthTextField = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.NumDrawerBox = new System.Windows.Forms.ComboBox();
+            this.DeskMaterialBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -45,6 +46,9 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.SubmitOrder = new System.Windows.Forms.Button();
             this.BackBtn = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RushOrderBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,21 +111,31 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Number of Drawers";
             // 
-            // comboBox1
+            // NumDrawerBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.NumDrawerBox.DisplayMember = "0";
+            this.NumDrawerBox.FormattingEnabled = true;
+            this.NumDrawerBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.NumDrawerBox.Location = new System.Drawing.Point(79, 210);
+            this.NumDrawerBox.Name = "NumDrawerBox";
+            this.NumDrawerBox.Size = new System.Drawing.Size(121, 21);
+            this.NumDrawerBox.TabIndex = 7;
             // 
-            // comboBox2
+            // DeskMaterialBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(79, 269);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 8;
+            this.DeskMaterialBox.FormattingEnabled = true;
+            this.DeskMaterialBox.Location = new System.Drawing.Point(79, 269);
+            this.DeskMaterialBox.Name = "DeskMaterialBox";
+            this.DeskMaterialBox.Size = new System.Drawing.Size(121, 21);
+            this.DeskMaterialBox.TabIndex = 8;
             // 
             // label5
             // 
@@ -201,11 +215,34 @@
             this.BackBtn.UseVisualStyleBackColor = true;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // RushOrderBox
+            // 
+            this.RushOrderBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "none",
+            "3",
+            "5",
+            "7"});
+            this.RushOrderBox.FormattingEnabled = true;
+            this.RushOrderBox.Items.AddRange(new object[] {
+            "0",
+            "3",
+            "5",
+            "7"});
+            this.RushOrderBox.Location = new System.Drawing.Point(369, 363);
+            this.RushOrderBox.Name = "RushOrderBox";
+            this.RushOrderBox.Size = new System.Drawing.Size(121, 21);
+            this.RushOrderBox.TabIndex = 17;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RushOrderBox);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.SubmitOrder);
             this.Controls.Add(this.checkBox4);
@@ -214,8 +251,8 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.DeskMaterialBox);
+            this.Controls.Add(this.NumDrawerBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.depthTextField);
             this.Controls.Add(this.label3);
@@ -225,6 +262,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddQuote";
             this.Text = "AddQuote";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,8 +277,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox depthTextField;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox NumDrawerBox;
+        private System.Windows.Forms.ComboBox DeskMaterialBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -249,5 +287,7 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Button BackBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox RushOrderBox;
     }
 }

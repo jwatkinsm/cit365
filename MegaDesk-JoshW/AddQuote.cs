@@ -47,8 +47,9 @@ namespace MegaDesk_JoshW
             // Create a desk object with the validated data
             int deskWidth = Int32.Parse(widthTextField.Text);
             int deskDepth = Int32.Parse(widthTextField.Text);
-            int deskNumOfDrawers = Int32.Parse(NumOfDrawersBox.Text);
-            Desk desk = new(deskWidth, deskDepth, deskNumOfDrawers, SurfaceMaterialBox.Text);
+            int deskNumOfDrawers = Int32.Parse(NumDrawerBox.Text);
+            Desk desk = new Desk(deskWidth, deskDepth, deskNumOfDrawers, DeskMaterialBox.Text);
+           
             int rushDays = Int32.Parse(RushOrderBox.Text);
             DeskQuote quote = new DeskQuote(NameTextField.Text, rushDays, desk);
 
@@ -67,9 +68,9 @@ namespace MegaDesk_JoshW
                 // Cancel the event and select the text to be corrected
                 e.Cancel = true;
                 widthTextField.Select(0, widthTextField.Text.Length);
-
                 // Set the ErrorProvider error display. 
                 this.errorProvider1.SetError(widthTextField, errorMsg);
+                widthTextField.BackColor = Color.LightPink;
             }
         }
         private bool ValidWidth(string text, out string errorMessage)
@@ -124,6 +125,7 @@ namespace MegaDesk_JoshW
             catch (Exception)
             {
                 this.errorProvider1.SetError(depthTextField, "Please enter a number between 12 and 48");
+                depthTextField.BackColor = Color.LightPink;
             }
         }
         private bool ValidDepth(string text)
