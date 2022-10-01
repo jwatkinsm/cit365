@@ -26,14 +26,12 @@ namespace MegaDesk_JoshW
         }
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
-            //how to pass objects to forms
-            string errorMsg;
+
 
             // Validate the width
-           if (!ValidWidth(widthTextField.Text, out errorMsg))
+           if (!ValidWidth(widthTextField.Text))
             {
-                errorMsg = "Please enter a number between 24 and 96";
-                this.errorProvider1.SetError(widthTextField, errorMsg);
+                this.errorProvider1.SetError(widthTextField, "Please enter a number between 24 and 96");
                 return;
             }
 
@@ -61,24 +59,29 @@ namespace MegaDesk_JoshW
         }
 
         private void widthTextField_Validating(object sender, CancelEventArgs e)
-        {
-            string errorMsg;
-            if (!ValidWidth(widthTextField.Text, out errorMsg))
+        { 
+            try
             {
-                // Cancel the event and select the text to be corrected
-                e.Cancel = true;
-                widthTextField.Select(0, widthTextField.Text.Length);
-                // Set the ErrorProvider error display. 
-                this.errorProvider1.SetError(widthTextField, errorMsg);
-                widthTextField.BackColor = Color.LightPink;
+                // Check valid character
+                if (!ValidWidth(widthTextField.Text))
+                {
+                    // If not, throw an exeption
+                    throw new Exception();
+                }
+
+            }
+            catch (Exception)
+            {
+                this.errorProvider1.SetError(widthTextField, "Please enter a number between 24 and 96");
+                
             }
         }
-        private bool ValidWidth(string text, out string errorMessage)
+        private bool ValidWidth(string text)
         {
             // Check blank
             if (text.Length == 0)
             {
-                errorMessage = "Width is required";
+                widthTextField.BackColor = Color.LightPink;
                 return false;
             }
 
@@ -87,21 +90,21 @@ namespace MegaDesk_JoshW
             {
                 if (!char.IsDigit(c))
                 {
-                    errorMessage = "Please enter a number";
+                    widthTextField.BackColor = Color.LightPink;
                     return false;
                 }
             }
 
             // Check correct range
             int numWidth = Int32.Parse(text);
-            if (numWidth > 94 || numWidth < 24)
+            if (numWidth > 96 || numWidth < 24)
             {
-                errorMessage = "Please enter a number between 24 and 94";
+                widthTextField.BackColor = Color.LightPink;
                 return false;
             }
 
             // Looks like we're good
-            errorMessage = "";
+            widthTextField.BackColor = Color.Silver;
             return true;
         }
 
@@ -125,7 +128,7 @@ namespace MegaDesk_JoshW
             catch (Exception)
             {
                 this.errorProvider1.SetError(depthTextField, "Please enter a number between 12 and 48");
-                depthTextField.BackColor = Color.LightPink;
+                
             }
         }
         private bool ValidDepth(string text)
@@ -133,6 +136,7 @@ namespace MegaDesk_JoshW
             // Check if blank
             if (text.Length == 0)
             {
+                depthTextField.BackColor = Color.LightPink;
                 return false;
             }
 
@@ -141,6 +145,7 @@ namespace MegaDesk_JoshW
             {
                 if (!char.IsDigit(c))
                 {
+                    depthTextField.BackColor = Color.LightPink;
                     return false;
                 }
             }
@@ -149,13 +154,33 @@ namespace MegaDesk_JoshW
             int numWidth = Int32.Parse(text);
             if (numWidth > 48 || numWidth < 12)
             {
+                depthTextField.BackColor = Color.LightPink;
                 return false;
             }
 
 
             // valid
+            depthTextField.BackColor = Color.Silver;
             this.errorProvider1.SetError(depthTextField, "");
             return true;
+        }
+
+        private void depthTextField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ((char)(Keys.Enter)) && (e.KeyChar != (char)(Keys.Delete) || e.KeyChar == Char.Parse(".")) && e.KeyChar != (char)(Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

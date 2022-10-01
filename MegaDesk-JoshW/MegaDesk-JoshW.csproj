@@ -121,5 +121,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\desk.jpg" />
+    <Content Include="image\pngegg %281%29.png" />
+    <Content Include="image\pngegg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
