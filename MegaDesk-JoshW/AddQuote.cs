@@ -35,7 +35,7 @@ namespace MegaDesk_JoshW
                 return;
             }
 
-            // Validate the depth
+            // Validate the depth and send error
             if (!ValidDepth(depthTextField.Text))
             {
                 this.errorProvider1.SetError(depthTextField, "Please enter a number between 12 and 48");

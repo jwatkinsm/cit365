@@ -17,7 +17,7 @@ namespace MegaDesk_JoshW
             InitializeComponent();
         }
         //navigation button controls
-        #region
+        #region buttons
         //close application
         private void ExitBtn_Click(object sender, EventArgs e)
         {
