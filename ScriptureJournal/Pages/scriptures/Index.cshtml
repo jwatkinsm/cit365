@@ -1,0 +1,70 @@
+﻿@page
+@model ScriptureJournal.Pages.scriptures.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="text-success h6" asp-page="Create">Create New</a>
+</p>
+<form>
+    <p>
+        <select asp-for="BookSection" asp-items="Model.Books">
+            Book:<option value="">All</option>
+        </select>
+        Keywored: <input type="text" asp-for="KeyWordSearchString" />
+        Sort By: <select asp-for="SortMethod" asp-items="Model.SortList"></select>
+        <input class="btn btn-info" type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureNote[0].Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureNote[0].Chapter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureNote[0].Verse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureNote[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureNote[0].DateAdded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ScriptureNote) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chapter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                    <a class="text-warning" asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a class="text-info" asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a class="text-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
