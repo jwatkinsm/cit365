@@ -20,42 +20,42 @@ namespace MvcMovies.Models
                 context.Movie.AddRange(
                     new Movie
                     {
-                        Title = "When Harry Met Sally",
-                        ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
-                        Rating = "PG-13",
+                        Title = "The RM",
+                        ReleaseDate = DateTime.Parse("2003-1-31"),
+                        Genre = "Comedy",
+                        Rating = "PG",
                         Price = 7.99M,
-                        ImageUrl = "https://source.unsplash.com/random/?movie"
+                        ImageUrl = "https://m.media-amazon.com/images/M/MV5BMTI4NzQ1OTMyNV5BMl5BanBnXkFtZTYwMTE1NzQ3._V1_FMjpg_UX1000_.jpg"
                     },
 
                     new Movie
                     {
-                        Title = "Ghostbusters ",
-                        ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
-                        Rating = "PG-13",
+                        Title = "The Other side of Heaven",
+                        ReleaseDate = DateTime.Parse("2001-12-14"),
+                        Genre = "Inspirational Drama",
+                        Rating = "PG",
                         Price = 8.99M,
-                        ImageUrl = "https://source.unsplash.com/random/?movie"
+                        ImageUrl = "https://www.movieflavor.com/images/7b/7b8cb946b4b2ffa0f003fdecf5120c56.jpeg"
                     },
 
                     new Movie
                     {
-                        Title = "Ghostbusters 2",
-                        ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
+                        Title = "The Other side of Heaven 2",
+                        ReleaseDate = DateTime.Parse("2019-6-28"),
+                        Genre = "Inspirational Drama",
                         Rating = "PG-13",
                         Price = 9.99M,
-                        ImageUrl = "https://source.unsplash.com/random/?movie"
+                        ImageUrl = "https://m.media-amazon.com/images/M/MV5BMjIyMDJkNzYtOTlhYy00ZGQzLWI0MjctMjA3MGFmZTc0ZmQ5XkEyXkFqcGdeQXVyMTk3NDI2Njc@._V1_.jpg"
                     },
 
                     new Movie
                     {
-                        Title = "Rio Bravo",
-                        ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
-                        Rating = "PG-13",
+                        Title = "The Book of Mormon Movie",
+                        ReleaseDate = DateTime.Parse("2003-9-12"),
+                        Genre = "Scripture Based",
+                        Rating = "PG",
                         Price = 3.99M,
-                        ImageUrl = "https://source.unsplash.com/random/?movie"
+                        ImageUrl = "https://m.media-amazon.com/images/M/MV5BMGIzNmY5MjQtOTRmNy00YzNkLTkyMTUtMzk1NGMwZTA3ODRhXkEyXkFqcGdeQXVyNjExODE1MDc@._V1_.jpg"
                     }
                 );
                 context.SaveChanges();
