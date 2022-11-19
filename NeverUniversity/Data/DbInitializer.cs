@@ -1,11 +1,10 @@
-﻿using NeverUniversity.Data;
-using NeverUniversity.Models;
-using System;
+﻿using NeverUniversity.Models;
 using System.Linq;
+using System;
 
 namespace NeverUniversity.Data
 {
-    public static class DbInitializer
+    public class DbInitializer
     {
         public static void Initialize(SchoolContext context)
         {

@@ -21,10 +21,10 @@ namespace NeverUniversity.Controllers
 
         // GET: Students
         public async Task<IActionResult> Index(
-    string sortOrder,
-    string currentFilter,
-    string searchString,
-    int? pageNumber)
+     string sortOrder,
+     string currentFilter,
+     string searchString,
+     int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -77,10 +77,10 @@ namespace NeverUniversity.Controllers
             }
 
             var student = await _context.Students
-      .Include(s => s.Enrollments)
-          .ThenInclude(e => e.Course)
-      .AsNoTracking()
-      .FirstOrDefaultAsync(m => m.ID == id);
+                .Include(s => s.Enrollments)
+                    .ThenInclude(e => e.Course)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (student == null)
             {
@@ -101,7 +101,8 @@ namespace NeverUniversity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,LastName,FirstMidName,EnrollmentDate")] Student student)
+        public async Task<IActionResult> Create(
+     [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
         {
             try
             {
@@ -210,8 +211,7 @@ namespace NeverUniversity.Controllers
 
             try
             {
-                Student studentToDelete = new Student() { ID = id };
-                _context.Entry(studentToDelete).State = EntityState.Deleted;
+                _context.Students.Remove(student);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -220,6 +220,11 @@ namespace NeverUniversity.Controllers
                 //Log the error (uncomment ex variable name and write a log.)
                 return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
             }
+        }
+
+        private bool StudentExists(int id)
+        {
+            return _context.Students.Any(e => e.ID == id);
         }
     }
 }
