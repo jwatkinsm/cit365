@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NeverUniversity.Data;
 using NeverUniversity.Models.SchoolViewModels;
-
+using Microsoft.Extensions.Logging;
 
 namespace NeverUniversity.Controllers
 {
@@ -35,7 +35,6 @@ namespace NeverUniversity.Controllers
                 };
             return View(await data.AsNoTracking().ToListAsync());
         }
-
         public IActionResult Index()
         {
             return View();
